@@ -12,6 +12,14 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure subscription 1(c247a9d6-e942-425b-9d49-367c4b153c92)'
+    appType: 'webAppLinux'
+    appName: 'aaa'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    runtimeStack: 'NODE|18-lts'
+    startUpCommand: 'npm run dev'
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
